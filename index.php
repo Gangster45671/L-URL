@@ -55,9 +55,12 @@ function generateRandomString($length = 5) {
 
 
 
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta name="L-URL" content="A Simple but Effective URL Shortner" />
+    <meta name="google-site-verification" content="secret..." />
     <title>L-URL</title>
     <style>
     	table, th, td {
