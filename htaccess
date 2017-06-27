@@ -1,0 +1,6 @@
+# HTID:1708898: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
+php_value display_errors 1
+# DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:1708898:
+
+RewriteEngine On
+RewriteRule ^([^/]+)/? index.php?title=$1 [L,QSA]
