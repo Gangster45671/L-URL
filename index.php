@@ -27,7 +27,11 @@ function generateRandomString($length = 5) {
 		$goto = $result->get_result()->fetch_array();
 		$g = $goto[1];
 		//echo '<center><table width="410px" height="120px"><tr><th style="background-color: #F62823"><p2>Thanks for using</p2><br /><p2 style="color: #2FC900;">L</p2><p2 style="color: #FFFFFF">URL</p2></th></tr></table></center>'; //thankyou!!
-		header("Location: $g");
+                if ($g == '') {
+		    echo '<script>alert("Error: URL Not Found.");</script>';
+                } else {
+                    header("Location: $g");
+                }
 	}
 
 	if (isset($_POST['shorten'])) {
@@ -50,70 +54,4 @@ function generateRandomString($length = 5) {
 		echo '<center><table width="410px"><tr ><th style="background-color: #249AFF"><p3>Your link has been shortened! It is </p3></th><th style="background-color: #047ADF"><p3>http://lurl.site90.com/'.$title.'</p3></th></tr></table></center>';
 	}
 	$db->close();
-?>
-
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="L-URL" content="A Simple but Effective URL Shortner" />
-    <meta name="google-site-verification" content="secret..." />
-    <title>L-URL</title>
-    <style>
-    	table, th, td {
-  			border: 1px solid #000000;
-  			background-color: #999999;
-		}
-		p3 {
-			font: 12px sans-serif;
-			color: #FFFFFF;
-		}
-		p2 {
-			font: 40px sans-serif;
-		}
-		p {
-			font: italic 12px sans-serif;
-			color: #FFFFFF;
-		}
-		a {
-			font: 12px sans-serif;
-			color: #FFFFFF;
-		}
-    </style>
-</head>
-<body>
-	<center>
-		<table width="410px">
-			<tr onclick='window.location.href="/"'>
-    			<th onclick='window.location.href="/"' colspan="2" style="background-color: #2F7F00">
-    				<p2 style="color: #2FC900;">L</p2>
-    				<p2 style="color: #FFFFFF">URL</p2>
-    			</th>
-    		</tr>
-    		<tr>
-    			<th style="background-color: #03bf00; height: 20px;" colspan="2">
-    				<p>Shorten your links.</p>
-    			</th>
-    		</tr>
-    		<form action="index.php" method="POST">
-    			<tr>
-    				<th>
-    					<input type="text" name="url_to_shorten" value="" placeholder="Link to Shorten" size="50"></input>
-    				</th>
-    				<th>
-   					<input type="submit" name="shorten" value="Shorten Link"></input>
-   					</th>
-   				</tr>
-    		</form>
-    		<tr>
-    				<th colspan="2" style="background-color: #777777">
-    					<a href="mailto:luigi.pizzolito@hotmail.com?Subject=L-URL%20is%20Cool!!">Created with &#9829 by Luigi Pizzolito</a>
-    				</th>
-    			</tr>
-    	</table>
-	</center>
-</body>
-</html>
+?><!DOCTYPE html><meta charset=utf-8><meta content="A Simple but Effective URL Shortner"name=L-URL><meta name="google-site-verification" content="d1w-r7on1Pc2_QW3dtftij6ss3-Bo0N-cW2rYNbMpwU" /><title>L-URL</title><style>table,td,th{border:1px solid #000;background-color:#999}p3{font:12px sans-serif;color:#fff}p2{font:40px sans-serif}p{font:italic 12px sans-serif;color:#fff}a{font:12px sans-serif;color:#fff}</style><center><table width=410px><tr onclick='window.location.href="/"'><th colspan=2 style=background-color:#2f7f00 onclick='window.location.href="/"'><p2 style=color:#2fc900>L</p2><p2 style=color:#fff>URL</p2><tr><th colspan=2 style=background-color:#03bf00;height:20px><p>Shorten your links.</tr><form action=index.php method=POST><tr><th><input name=url_to_shorten placeholder="Link to Shorten"size=50><th><input name=shorten type=submit value="Shorten Link"></form><tr><th colspan=2 style=background-color:#777><a href="mailto:luigi.pizzolito@hotmail.com?Subject=L-URL%20is%20Cool!!">Created with ♥ by Luigi Pizzolito</a></table></center>
